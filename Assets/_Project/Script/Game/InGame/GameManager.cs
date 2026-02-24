@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public static EnemyManager[] enemies;
     public static float score;
     public static bool isCounting = false;
-    public static int wave = 1;
+    public static int wave = 2;
     bool isPaused = false;
     bool isTogglingPause = false;
 
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
             if (enemyMovement != null)
             {
                 enemyMovement.SetVelocidad(0.5f);
-                enemyMovement.SetProbabilidad(1);
+                enemyMovement.SetProbabilidad(0.15f);
             }
         }
 

@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour
     GameManager gameManager;
     Vector3 posicionInicial;
     float velOriginal = 0;
-    float numAtaque = 1;
 
 
     void Start()
@@ -57,16 +56,12 @@ public class EnemyMovement : MonoBehaviour
 
     void EnemyAttack()
     {
-        float ataques = 0;
         foreach (EnemyManager enemy in gameManager.GetEnemies())
         {
             if (UnityEngine.Random.value < probabilidadAtaque)
             {
                 enemy.Disparar();
-                if (ataques >= numAtaque)
-                {
-                    return;
-                }
+                return;
             }
         }
     }
@@ -106,10 +101,5 @@ public class EnemyMovement : MonoBehaviour
     public void SetProbabilidad(float number)
     {
         probabilidadAtaque += number;
-    }
-
-    public void SetAtaques(float number)
-    {
-        numAtaque = number;
     }
 }
