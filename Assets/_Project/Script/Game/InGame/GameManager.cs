@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public static EnemyManager[] enemies;
     public static float score;
     public static bool isCounting = false;
-    public static int wave = 2;
+    public static int wave = 1;
     bool isPaused = false;
     bool isTogglingPause = false;
 
@@ -153,7 +153,13 @@ public class GameManager : MonoBehaviour
                 foreach (BrickManager brick in brickManagers)
                 {
                     if (brick != null)
+                    {
                         brick.EnableBrick();
+                    }
+                    else
+                    {
+                        Debug.Log("Null");
+                    }
                 }
             }
 

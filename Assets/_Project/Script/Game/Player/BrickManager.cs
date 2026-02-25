@@ -45,9 +45,17 @@ public class BrickManager : MonoBehaviour
 
     public void EnableBrick()
     {
-        hit = 1;
-        animator.SetTrigger("NextWave");
-        animator.ResetTrigger("NextWave");
+        hit = 0;
+        ResetTrigger();
         gameObject.SetActive(true);
+        animator.SetTrigger("NextWave");
+    }
+
+    public void ResetTrigger()
+    {
+        animator.ResetTrigger("OneHit");
+        animator.ResetTrigger("SecondHit");
+        animator.ResetTrigger("ThirdHit");
+        animator.ResetTrigger("NextWave");
     }
 }
