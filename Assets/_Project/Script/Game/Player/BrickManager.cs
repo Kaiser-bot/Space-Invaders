@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BrickManager : MonoBehaviour
 {
-    int hit = 1;
+    int hit = 0;
     Animator animator;
 
 
@@ -22,6 +22,7 @@ public class BrickManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyAttack"))
         {
+            hit += 1;
             switch (hit)
             {
                 case 1:
@@ -39,7 +40,6 @@ public class BrickManager : MonoBehaviour
                     break;
             }
         }
-        hit += 1;
     }
 
 
