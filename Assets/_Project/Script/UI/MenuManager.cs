@@ -41,16 +41,7 @@ public class MenuManager : MonoBehaviour
 
     public void Return()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-
-        if (currentScene == "GameOver")
-        {
-            gameManager.TogglePause();
-        }
-        else if (currentScene == "SettingScreen")
-        {
-            SceneManager.LoadScene("Game");
-        }
+        gameManager.TogglePause();
     }
 
 
