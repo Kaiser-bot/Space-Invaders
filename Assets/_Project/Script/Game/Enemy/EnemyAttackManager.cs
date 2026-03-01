@@ -20,27 +20,27 @@ public class EnemyAttackManager : MonoBehaviour
     {
         if (!trigger)
         {
-            trigger = true;
-            float duracion = gameManager.GetClipLengh("Explotion", animator);
-            animator.SetTrigger("exp");
-            Destroy(gameObject, duracion);
+            Delete();
         }
     }
 
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("ParedOut")) && !trigger)
+        if (collision.gameObject.CompareTag("Player") && !trigger)
         {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                gameManager.RestarVida();
-                gameManager.Hit();
-            }
-            trigger = true;
-            float duracion = gameManager.GetClipLengh("Explotion", animator);
-            animator.SetTrigger("exp");
-            Destroy(gameObject, duracion);
+            gameManager.RestarVida();
+            gameManager.Hit();
+            Delete();
         }
+    }
+
+
+    void Delete()
+    {
+        trigger = true;
+        float duracion = gameManager.GetClipLengh("Explotion", animator);
+        animator.SetTrigger("exp");
+        Destroy(gameObject, duracion);
     }
 }
