@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioClip gameLoop;
     [SerializeField] AudioClip gameOver;
+    [SerializeField] AudioClip attackClip;
+    [SerializeField] AudioClip hitClip;
     public static AudioManager instance;
     private float masterVolume = 1f;
     string currentAudioScene = "";
@@ -97,5 +100,27 @@ public class AudioManager : MonoBehaviour
         {
             source.volume = masterVolume;
         }
+    }
+
+    public void PlayOnce(string nameClip)
+    {
+        AudioClip audioClip;
+
+        switch (nameClip)
+        {
+            case "attackClip":
+                audioClip = attackClip;
+                break;
+            case "hitClip":
+                audioClip = hitClip;
+                break;
+            default:
+                return;
+        }
+
+        if (audioSource == null || audioClip == null)
+            return;
+
+        audioSource.PlayOneShot(audioClip, masterVolume);
     }
 }

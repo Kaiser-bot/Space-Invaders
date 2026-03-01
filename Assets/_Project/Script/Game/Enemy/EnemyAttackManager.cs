@@ -34,6 +34,7 @@ public class EnemyAttackManager : MonoBehaviour
         {
             trigger = true;
             gameManager.RestarVida();
+            gameManager.Hit();
             float duracion = gameManager.GetClipLengh("Explotion", animator);
             animator.SetTrigger("exp");
             Destroy(gameObject, duracion);
