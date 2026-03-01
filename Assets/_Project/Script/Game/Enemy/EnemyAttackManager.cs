@@ -30,7 +30,7 @@ public class EnemyAttackManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Pared")) && !trigger)
+        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("ParedOut")) && !trigger)
         {
             trigger = true;
             gameManager.RestarVida();
